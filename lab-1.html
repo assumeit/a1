@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+
+<body>
+<table id="atable" border="3"> 
+  <tr>
+    <td>Row1 Col1</td> 
+    <td>Row1 Col2</td>
+  </tr> 
+  <tr>
+    <td>Row2 Col1</td> 
+    <td>Row2 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row3 Col1</td> 
+    <td>Row3 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row4 Col1</td> 
+    <td>Row4 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row5 Col1</td> 
+    <td>Row5 Col2</td>
+  </tr> 
+</table>
+
+<br>
+ <div>
+<input type="button" onclick="insertRowBottom()" value="Insert row">  
+<input type="button" onclick="deleteRowTop()" value="Delete row">  
+</div>
+
+
+<br>
+
+<div id="dispmessage"></div> 
+<script>
+
+var x = 5;
+
+function insertRowBottom() {
+  var tbl = document.getElementById("atable");
+  x++;
+  var rw = tbl.insertRow(-1);
+  var tablecell1 = rw.insertCell(0);
+  var tablecell2 = rw.insertCell(1);
+  tablecell1.innerHTML = "Row " + x + " Col 1";
+  tablecell2.innerHTML = "Row " + x + "  Col 2";
+  document.getElementById("dispmessage").innerHTML = ""; 
+
+}
+
+function deleteRowTop() {
+  var tbl = document.getElementById("atable");
+  if (tbl.rows.length > 0) {
+    tbl.deleteRow(0);
+    document.getElementById("dispmessage").innerHTML = ""; 
+  } else {
+    document.getElementById("dispmessage").innerHTML = "Message: Nothing to delete"; 
+  }
+}
+</script>
+<style>
+   
+
+  input[type="button"]:hover {
+    background-color: #ffffff;
+  }
+  #atable {
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 2px;
+  }
+
+  #atable td {
+    border: 1px solid #f90000;
+    padding: 10px;
+    text-align: center;
+  }
+  input[type="button"] {
+    padding: 11px 21px;
+    background-color: #f6fa3b;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-right: 10px;
+  }
+
+  #dispmessage {
+    color: red;
+    font-style: italic;
+  }
+</style>
+</body>
+</html>
